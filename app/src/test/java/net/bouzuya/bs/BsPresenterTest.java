@@ -3,9 +3,6 @@ package net.bouzuya.bs;
 import org.junit.Test;
 import org.threeten.bp.Instant;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -15,8 +12,7 @@ public class BsPresenterTest {
     @Test
     public void testStart() {
         BsRepository bsRepository = mock(BsRepository.class);
-        List<Bs> bsList = new ArrayList<>();
-        bsList.add(Bs.of(Instant.now(), "note"));
+        BsList bsList = BsList.from(Bs.of(Instant.now(), "note"));
         when(bsRepository.loadAll()).thenReturn(bsList);
         BsView bsView = mock(BsView.class);
         BsPresenter bsPresenter = new BsPresenter(bsRepository, bsView);
