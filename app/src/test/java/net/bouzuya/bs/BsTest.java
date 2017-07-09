@@ -11,7 +11,7 @@ public class BsTest {
     public void test() {
         Instant createdAt = Instant.parse("2006-01-02T22:04:05Z");
         Bs bs = Bs.of(createdAt, "note");
-        assertThat(bs.getNote(), is("note"));
+        assertThat(bs.getContent(), is("note"));
         assertThat(bs.getCreatedAt(), is(createdAt));
     }
 }

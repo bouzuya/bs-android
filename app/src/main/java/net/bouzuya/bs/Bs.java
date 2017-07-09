@@ -19,7 +19,7 @@ class Bs {
         return createdAt;
     }
 
-    public String getNote() {
+    public String getContent() {
         return note;
     }
 }
