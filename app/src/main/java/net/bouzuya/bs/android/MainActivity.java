@@ -25,6 +25,12 @@ public class MainActivity extends AppCompatActivity implements BsView {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        bsPresenter.start();
+    }
+
+    @Override
     public void showBsList(BsList bsList) {
         // TODO
     }

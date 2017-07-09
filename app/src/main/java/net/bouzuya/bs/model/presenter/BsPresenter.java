@@ -16,7 +16,7 @@ public class BsPresenter {
         this.bsView = bsView;
     }
 
-    void start() {
+    public void start() {
         this.bsRepository.loadAll().subscribe(new Consumer<BsList>() {
             @Override
             public void accept(@NonNull BsList bsList) throws Exception {
