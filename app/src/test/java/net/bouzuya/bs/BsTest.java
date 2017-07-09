@@ -1,10 +1,12 @@
 package net.bouzuya.bs;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.threeten.bp.Instant;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 public class BsTest {
@@ -14,6 +16,16 @@ public class BsTest {
         Bs bs = Bs.of(createdAt, "note");
         assertThat(bs.getContent(), is("note"));
         assertThat(bs.getCreatedAt(), is(createdAt));
+    }
+
+    @Test
+    public void testConstructorValidation() {
+        try {
+            Bs.of(null, null);
+            Assert.fail();
+        } catch (IllegalArgumentException e) {
+            assertThat(e, is(not(nullValue())));
+        }
     }
 
     @Test
