@@ -1,4 +1,4 @@
-package net.bouzuya.bs;
+package net.bouzuya.bs.model.entity;
 
 import org.junit.Assert;
 import org.junit.Test;

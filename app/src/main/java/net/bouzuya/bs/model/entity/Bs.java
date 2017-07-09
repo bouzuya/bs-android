@@ -1,8 +1,8 @@
-package net.bouzuya.bs;
+package net.bouzuya.bs.model.entity;
 
 import org.threeten.bp.Instant;
 
-class Bs {
+public class Bs {
     private final Instant createdAt;
     private final String content;
 
@@ -13,7 +13,7 @@ class Bs {
         this.createdAt = createdAt;
     }
 
-    static Bs of(Instant createdAt, String note) {
+    public static Bs of(Instant createdAt, String note) {
         return new Bs(createdAt, note);
     }
 

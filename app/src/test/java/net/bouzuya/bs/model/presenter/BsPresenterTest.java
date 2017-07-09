@@ -1,4 +1,9 @@
-package net.bouzuya.bs;
+package net.bouzuya.bs.model.presenter;
+
+import net.bouzuya.bs.model.entity.Bs;
+import net.bouzuya.bs.model.entity.BsList;
+import net.bouzuya.bs.model.repository.BsRepository;
+import net.bouzuya.bs.model.view.BsView;
 
 import org.junit.Test;
 import org.threeten.bp.Instant;

@@ -1,17 +1,17 @@
-package net.bouzuya.bs;
+package net.bouzuya.bs.model.entity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-class BsList {
+public class BsList {
     private final List<Bs> bsList;
 
     private BsList(List<Bs> bsList) {
         this.bsList = new ArrayList<>(bsList);
     }
 
-    static BsList from(Bs... bsArray) {
+    public static BsList from(Bs... bsArray) {
         return new BsList(Arrays.asList(bsArray));
     }
 
