@@ -7,7 +7,7 @@ import net.bouzuya.bs.model.view.BsView;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 
-class BsPresenter {
+public class BsPresenter {
     private final BsRepository bsRepository;
     private final BsView bsView;
 
