@@ -1,9 +1,10 @@
-package net.bouzuya.bs.android;
+package net.bouzuya.bs.android.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import net.bouzuya.bs.R;
+import net.bouzuya.bs.android.BsApplication;
 import net.bouzuya.bs.model.entity.BsList;
 import net.bouzuya.bs.model.presenter.BsPresenter;
 import net.bouzuya.bs.model.presenter.BsPresenterFactory;
