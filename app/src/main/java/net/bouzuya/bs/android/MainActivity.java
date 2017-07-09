@@ -1,7 +1,9 @@
-package net.bouzuya.bs;
+package net.bouzuya.bs.android;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import net.bouzuya.bs.R;
 
 public class MainActivity extends AppCompatActivity {
 
