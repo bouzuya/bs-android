@@ -11,7 +11,7 @@ class BsPresenter {
     private final BsRepository bsRepository;
     private final BsView bsView;
 
-    public BsPresenter(BsRepository bsRepository, BsView bsView) {
+    BsPresenter(BsRepository bsRepository, BsView bsView) {
         this.bsRepository = bsRepository;
         this.bsView = bsView;
     }
