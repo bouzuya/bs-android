@@ -15,7 +15,6 @@ public class BsApplication extends Application {
     public void onCreate() {
         super.onCreate();
         AndroidThreeTen.init(this);
-
         component = DaggerBsApplicationComponent.builder().build();
     }
 }
