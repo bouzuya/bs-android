@@ -25,7 +25,7 @@ class BsPresenter {
         }, new Consumer<Throwable>() {
             @Override
             public void accept(@NonNull Throwable throwable) throws Exception {
-                // TODO
+                BsPresenter.this.bsView.showLoadException(throwable);
             }
         });
     }
