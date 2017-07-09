@@ -8,6 +8,8 @@ import net.bouzuya.bs.model.view.BsView;
 import org.junit.Test;
 import org.threeten.bp.Instant;
 
+import io.reactivex.Single;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -18,7 +20,7 @@ public class BsPresenterTest {
     public void testStart() {
         BsRepository bsRepository = mock(BsRepository.class);
         BsList bsList = BsList.from(Bs.of(Instant.now(), "note"));
-        when(bsRepository.loadAll()).thenReturn(bsList);
+        when(bsRepository.loadAll()).thenReturn(Single.just(bsList));
         BsView bsView = mock(BsView.class);
         BsPresenter bsPresenter = new BsPresenter(bsRepository, bsView);
         bsPresenter.start();

@@ -4,6 +4,9 @@ import net.bouzuya.bs.model.entity.BsList;
 import net.bouzuya.bs.model.repository.BsRepository;
 import net.bouzuya.bs.model.view.BsView;
 
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Consumer;
+
 class BsPresenter {
     private final BsRepository bsRepository;
     private final BsView bsView;
@@ -14,7 +17,16 @@ class BsPresenter {
     }
 
     void start() {
-        BsList bsList = this.bsRepository.loadAll();
-        this.bsView.showBsList(bsList);
+        this.bsRepository.loadAll().subscribe(new Consumer<BsList>() {
+            @Override
+            public void accept(@NonNull BsList bsList) throws Exception {
+                BsPresenter.this.bsView.showBsList(bsList);
+            }
+        }, new Consumer<Throwable>() {
+            @Override
+            public void accept(@NonNull Throwable throwable) throws Exception {
+                // TODO
+            }
+        });
     }
 }
