@@ -28,6 +28,6 @@ public class BsList {
     }
 
     List<Bs> toList() {
-        return new ArrayList<>(bsList);
+        return new ArrayList<>(this.bsList);
     }
 }

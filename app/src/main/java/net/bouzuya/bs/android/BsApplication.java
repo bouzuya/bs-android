@@ -8,13 +8,13 @@ public class BsApplication extends Application {
     private BsApplicationComponent component;
 
     public BsApplicationComponent getComponent() {
-        return component;
+        return this.component;
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
         AndroidThreeTen.init(this);
-        component = DaggerBsApplicationComponent.builder().build();
+        this.component = DaggerBsApplicationComponent.builder().build();
     }
 }

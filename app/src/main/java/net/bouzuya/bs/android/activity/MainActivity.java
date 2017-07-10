@@ -30,29 +30,29 @@ public class MainActivity extends AppCompatActivity implements BsView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ((BsApplication) getApplication()).getComponent().inject(this);
-        bsPresenter = bsPresenterFactory.create(this);
-        bsListAdapter = new BsListAdapter(BsList.empty());
+        this.bsPresenter = this.bsPresenterFactory.create(this);
+        this.bsListAdapter = new BsListAdapter(BsList.empty());
         RecyclerView bsListView = (RecyclerView) findViewById(R.id.bs_list_view);
-        bsListView.setAdapter(bsListAdapter);
+        bsListView.setAdapter(this.bsListAdapter);
         bsListView.setLayoutManager(new LinearLayoutManager(bsListView.getContext()));
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        bsPresenter = null;
+        this.bsPresenter = null;
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        bsPresenter.start();
+        this.bsPresenter.start();
     }
 
     @Override
     public void showBsList(BsList bsList) {
-        bsListAdapter.changeDataSet(bsList);
-        bsListAdapter.notifyDataSetChanged();
+        this.bsListAdapter.changeDataSet(bsList);
+        this.bsListAdapter.notifyDataSetChanged();
     }
 
     @Override

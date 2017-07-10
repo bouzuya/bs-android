@@ -24,22 +24,22 @@ public class Bs {
 
         Bs bs = (Bs) o;
 
-        if (!createdAt.equals(bs.createdAt)) return false;
-        return content.equals(bs.content);
+        if (!this.createdAt.equals(bs.createdAt)) return false;
+        return this.content.equals(bs.content);
     }
 
     public String getContent() {
-        return content;
+        return this.content;
     }
 
     public Instant getCreatedAt() {
-        return createdAt;
+        return this.createdAt;
     }
 
     @Override
     public int hashCode() {
-        int result = createdAt.hashCode();
-        result = 31 * result + content.hashCode();
+        int result = this.createdAt.hashCode();
+        result = 31 * result + this.content.hashCode();
         return result;
     }
 }

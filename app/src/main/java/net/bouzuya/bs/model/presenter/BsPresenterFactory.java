@@ -11,6 +11,6 @@ public class BsPresenterFactory {
     }
 
     public BsPresenter create(BsView bsView) {
-        return new BsPresenter(bsRepository, bsView);
+        return new BsPresenter(this.bsRepository, bsView);
     }
 }
