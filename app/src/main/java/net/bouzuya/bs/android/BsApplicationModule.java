@@ -5,6 +5,7 @@ import net.bouzuya.bs.model.entity.BsList;
 import net.bouzuya.bs.model.presenter.BsPresenterFactory;
 import net.bouzuya.bs.model.repository.BsRepository;
 
+import org.threeten.bp.Duration;
 import org.threeten.bp.Instant;
 
 import javax.inject.Singleton;
@@ -21,7 +22,10 @@ class BsApplicationModule {
         return new BsRepository() {
             @Override
             public Single<BsList> loadAll() {
-                return Single.just(BsList.from(Bs.of(Instant.now(), "content")));
+                Bs bs1 = Bs.of(Instant.now(), "comment1");
+                Bs bs2 = Bs.of(Instant.now().plus(Duration.ofSeconds(1)), "comment2comment2comment2comment2comment2comment2comment2comment2comment2comment2comment2comment2comment2comment2comment2comment2comment2comment2comment2comment2comment2comment2comment2comment2comment2comment2");
+                BsList bsList = BsList.from(bs1, bs2);
+                return Single.just(bsList);
             }
         };
     }
