@@ -8,7 +8,13 @@ import static org.junit.Assert.assertThat;
 
 public class BsListTest {
     @Test
-    public void test() {
+    public void testEmpty() {
+        BsList bsList = BsList.empty();
+        assertThat(bsList.size(), is(0));
+    }
+
+    @Test
+    public void testFrom() {
         Bs bs1 = Bs.of(Instant.now(), "note1");
         Bs bs2 = Bs.of(Instant.now(), "note2");
         BsList bsList = BsList.from(bs1, bs2);

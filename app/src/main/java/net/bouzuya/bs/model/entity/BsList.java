@@ -11,6 +11,10 @@ public class BsList {
         this.bsList = new ArrayList<>(bsList);
     }
 
+    public static BsList empty() {
+        return new BsList(new ArrayList<Bs>());
+    }
+
     public static BsList from(Bs... bsArray) {
         return new BsList(Arrays.asList(bsArray));
     }
