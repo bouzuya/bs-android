@@ -15,6 +15,14 @@ public class BsList {
         return new BsList(Arrays.asList(bsArray));
     }
 
+    public Bs get(int index) {
+        return this.bsList.get(index);
+    }
+
+    public int size() {
+        return this.bsList.size();
+    }
+
     List<Bs> toList() {
         return new ArrayList<>(bsList);
     }
