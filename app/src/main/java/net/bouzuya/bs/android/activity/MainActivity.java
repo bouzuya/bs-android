@@ -20,6 +20,7 @@ import net.bouzuya.bs.model.view.BsView;
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity implements BsView {
+    @SuppressWarnings("WeakerAccess")
     @Inject
     BsPresenterFactory bsPresenterFactory;
     private BsPresenter bsPresenter;
@@ -92,7 +93,9 @@ public class MainActivity extends AppCompatActivity implements BsView {
     }
 
     private static class BsListItemViewHolder extends RecyclerView.ViewHolder {
+        @SuppressWarnings("CanBeFinal")
         TextView createdAtTextView;
+        @SuppressWarnings("CanBeFinal")
         TextView contentSummaryTextView;
 
         BsListItemViewHolder(View itemView) {
