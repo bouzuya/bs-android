@@ -5,6 +5,7 @@ import net.bouzuya.bs.model.entity.BsList;
 import net.bouzuya.bs.model.entity.User;
 import net.bouzuya.bs.model.presenter.BsPresenterFactory;
 import net.bouzuya.bs.model.repository.BsRepository;
+import net.bouzuya.bs.model.repository.UserRepository;
 
 import org.threeten.bp.Duration;
 import org.threeten.bp.Instant;
@@ -33,7 +34,21 @@ class BsApplicationModule {
 
     @Provides
     @Singleton
-    BsPresenterFactory providesBsPresenterFactory(BsRepository bsRepository) {
-        return new BsPresenterFactory(bsRepository);
+    BsPresenterFactory providesBsPresenterFactory(
+            BsRepository bsRepository,
+            UserRepository userRepository
+    ) {
+        return new BsPresenterFactory(bsRepository, userRepository);
+    }
+
+    @Provides
+    @Singleton
+    UserRepository providesUserRepository() {
+        return new UserRepository() {
+            @Override
+            public Single<User> loadOrCreate() {
+                return Single.just(User.of("123"));
+            }
+        };
     }
 }

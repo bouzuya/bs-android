@@ -1,6 +1,7 @@
 package net.bouzuya.bs.model.presenter;
 
 import net.bouzuya.bs.model.repository.BsRepository;
+import net.bouzuya.bs.model.repository.UserRepository;
 import net.bouzuya.bs.model.view.BsView;
 
 import org.junit.Test;
@@ -14,7 +15,9 @@ public class BsPresenterFactoryTest {
     @Test
     public void testCreate() {
         BsRepository bsRepository = mock(BsRepository.class);
-        BsPresenterFactory bsPresenterFactory = new BsPresenterFactory(bsRepository);
+        UserRepository userRepository = mock(UserRepository.class);
+        BsPresenterFactory bsPresenterFactory =
+                new BsPresenterFactory(bsRepository, userRepository);
         BsView bsView = mock(BsView.class);
         BsPresenter bsPresenter = bsPresenterFactory.create(bsView);
         assertThat(bsPresenter, is(notNull()));
