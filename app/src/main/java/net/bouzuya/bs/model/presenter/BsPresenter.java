@@ -1,6 +1,7 @@
 package net.bouzuya.bs.model.presenter;
 
 import net.bouzuya.bs.model.entity.BsList;
+import net.bouzuya.bs.model.entity.User;
 import net.bouzuya.bs.model.repository.BsRepository;
 import net.bouzuya.bs.model.view.BsView;
 
@@ -17,7 +18,7 @@ public class BsPresenter {
     }
 
     public void start() {
-        this.bsRepository.loadAll().subscribe(new Consumer<BsList>() {
+        this.bsRepository.loadAllOfUser(null).subscribe(new Consumer<BsList>() {
             @Override
             public void accept(@NonNull BsList bsList) throws Exception {
                 BsPresenter.this.bsView.showBsList(bsList);

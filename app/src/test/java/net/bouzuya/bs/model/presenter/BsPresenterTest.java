@@ -2,6 +2,7 @@ package net.bouzuya.bs.model.presenter;
 
 import net.bouzuya.bs.model.entity.Bs;
 import net.bouzuya.bs.model.entity.BsList;
+import net.bouzuya.bs.model.entity.User;
 import net.bouzuya.bs.model.repository.BsRepository;
 import net.bouzuya.bs.model.view.BsView;
 
@@ -21,11 +22,11 @@ public class BsPresenterTest {
     public void testStartFailure() {
         BsRepository bsRepository = mock(BsRepository.class);
         Exception exception = new Exception();
-        when(bsRepository.loadAll()).thenReturn(Single.<BsList>error(exception));
+        when(bsRepository.loadAllOfUser(null)).thenReturn(Single.<BsList>error(exception));
         BsView bsView = mock(BsView.class);
         BsPresenter bsPresenter = new BsPresenter(bsRepository, bsView);
         bsPresenter.start();
-        verify(bsRepository, times(1)).loadAll();
+        verify(bsRepository, times(1)).loadAllOfUser(null);
         verify(bsView, times(0)).showBsList(any(BsList.class));
         verify(bsView, times(1)).showLoadException(exception);
     }
@@ -34,11 +35,11 @@ public class BsPresenterTest {
     public void testStartSuccess() {
         BsRepository bsRepository = mock(BsRepository.class);
         BsList bsList = BsList.from(Bs.of(Instant.now(), "note"));
-        when(bsRepository.loadAll()).thenReturn(Single.just(bsList));
+        when(bsRepository.loadAllOfUser(null)).thenReturn(Single.just(bsList));
         BsView bsView = mock(BsView.class);
         BsPresenter bsPresenter = new BsPresenter(bsRepository, bsView);
         bsPresenter.start();
-        verify(bsRepository, times(1)).loadAll();
+        verify(bsRepository, times(1)).loadAllOfUser(null);
         verify(bsView, times(1)).showBsList(bsList);
         verify(bsView, times(0)).showLoadException(any(Exception.class));
     }
